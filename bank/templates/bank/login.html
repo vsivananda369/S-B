@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Net Banking Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'bank/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2>Net Banking Login</h2>
+
+    {% if error %}
+
+        <p style="color:red;">
+            {{ error }}
+        </p>
+
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <br>
+
+    <p>
+        New Customer?
+
+        <a href="{% url 'register' %}">
+            Register
+        </a>
+    </p>
+
+</div>
+
+</body>
+
+</html>
